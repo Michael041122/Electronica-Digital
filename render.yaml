@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: electronica-digital-mx
+    env: docker
+    dockerfilePath: app-backend/Dockerfile
+    dockerContext: app-backend
+    plan: free
+    region: oregon
+    envVars:
+      - key: APP_NAME
+        value: "Electrónica Digital MX"
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_KEY
+        generateValue: true
+      - key: APP_URL
+        fromService:
+          type: web
+          name: electronica-digital-mx
+          property: host
+      - key: DB_CONNECTION
+        value: sqlite
+      - key: DB_DATABASE
+        value: /var/www/html/database/database.sqlite
