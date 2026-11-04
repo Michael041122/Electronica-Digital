@@ -61,6 +61,12 @@
             </nav>
 
             <div class="nav-actions">
+                <a href="https://www.facebook.com" target="_blank" class="nav-social-icon facebook" title="Facebook Electrónica Digital MX">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com" target="_blank" class="nav-social-icon instagram" title="Instagram Electrónica Digital MX">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
                 <a href="https://wa.me/527227060068?text=Hola,%20me%20gustaría%20solicitar%20una%20cotización" target="_blank" class="btn btn-whatsapp-header">
                     <i class="fa-brands fa-whatsapp"></i> WhatsApp
                 </a>
@@ -90,6 +96,11 @@
                     <p><i class="fa-solid fa-phone"></i> 722 706 0068 | 722 396 7562</p>
                     <p><i class="fa-solid fa-envelope"></i> electronica.digital.toluca@gmail.com</p>
                     <p><i class="fa-solid fa-clock"></i> Lunes a Sábado: 7:00 AM – 4:00 PM</p>
+                </div>
+                <div class="footer-social-links">
+                    <a href="https://www.facebook.com" target="_blank" class="footer-social-btn fb" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com" target="_blank" class="footer-social-btn ig" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://wa.me/527227060068" target="_blank" class="footer-social-btn wa" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
             </div>
 
@@ -127,10 +138,18 @@
         </div>
     </footer>
 
-    <!-- Botón Flotante Verde de WhatsApp -->
-    <a href="https://wa.me/527227060068?text=Hola,%20quisiera%20solicitar%20información%20sobre%20sus%20servicios" class="floating-whatsapp-btn" target="_blank" title="Cotizar por WhatsApp">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
+    <!-- Grupo de Botones Flotantes de Redes Sociales -->
+    <div class="floating-social-group">
+        <a href="https://www.facebook.com" class="floating-social-btn floating-facebook" target="_blank" title="Síguenos en Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com" class="floating-social-btn floating-instagram" target="_blank" title="Síguenos en Instagram">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/527227060068?text=Hola,%20quisiera%20solicitar%20información%20sobre%20sus%20servicios" class="floating-social-btn floating-whatsapp" target="_blank" title="Cotizar por WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
 
     <script src="{{ asset('js/script.js') }}"></script>
     @yield('scripts')
