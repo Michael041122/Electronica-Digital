@@ -28,10 +28,14 @@ COPY . .
 # Instalar dependencias optimizadas para producción
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
+# Copiar script de arranque y dar permisos
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
 # Permisos para almacenamiento y caché
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \
-    && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/database \
+    && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/database
 
 EXPOSE 80 8000
 
-CMD php artisan config:cache && php artisan route:cache && php artisan view:cache && php artisan serve --host=0.0.0.0 --port=8000
+ENTRYPOINT ["docker-entrypoint.sh"]
