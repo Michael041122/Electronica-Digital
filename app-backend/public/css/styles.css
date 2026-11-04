@@ -1,0 +1,831 @@
+/* ==========================================================================
+   Electrónica Digital MX - CSS Design (Fiel réplica al estilo VideoConfianza)
+   Color Principal: Azul Royal Intenso (#154EE7 / #0D47A1)
+   Color Secundario Dark: Azul Noche (#0C1424)
+   Color Verde CTA WhatsApp: (#00D655 / #25D366)
+   ========================================================================== */
+
+:root {
+    --brand-blue: #154EE7;
+    --brand-blue-hover: #0F3DC3;
+    --brand-dark: #0A111F;
+    --brand-dark-card: #121C2E;
+
+    --whatsapp-green: #00D655;
+    --whatsapp-green-hover: #00B849;
+
+    --text-heading: #0F172A;
+    --text-body: #475569;
+    --text-muted: #94A3B8;
+    --white: #FFFFFF;
+
+    --bg-gray: #F8FAFC;
+    --border-color: #E2E8F0;
+
+    --font-primary: 'Plus Jakarta Sans', sans-serif;
+    --font-accent: 'Outfit', sans-serif;
+
+    --shadow-card: 0 4px 20px rgba(15, 23, 42, 0.08);
+}
+
+/* Reset General */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-primary);
+    color: var(--text-body);
+    background-color: var(--white);
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* 1. NAVBAR - Limpio, fondo blanco con logo ojo tecnológico y botón verde */
+.navbar {
+    background-color: var(--white);
+    height: 76px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Logo personalizado inspirado en el icono de lente pero original para Electrónica Digital MX */
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo-eye-icon {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, var(--brand-blue) 0%, #0D3BBD 100%);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    position: relative;
+}
+
+.logo-eye-icon.white {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--white);
+}
+
+.brand-name {
+    font-family: var(--font-accent);
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--text-heading);
+    letter-spacing: -0.3px;
+    display: block;
+}
+
+.brand-badge {
+    background-color: var(--brand-blue);
+    color: var(--white);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+
+.brand-subtext {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    display: block;
+    font-weight: 600;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-link {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-heading);
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: var(--brand-blue);
+}
+
+.nav-dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+/* Menú Desplegable Elegante */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 250px;
+    background-color: var(--white);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+    padding: 0.5rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.25s ease;
+    border: 1px solid var(--border-color);
+}
+
+.nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    display: block;
+    padding: 0.6rem 1.25rem;
+    font-size: 0.9rem;
+    color: var(--text-body);
+    font-weight: 500;
+}
+
+.dropdown-item:hover {
+    background-color: var(--bg-gray);
+    color: var(--brand-blue);
+    font-weight: 600;
+}
+
+/* Botón Header WhatsApp */
+.btn-whatsapp-header {
+    background-color: var(--whatsapp-green);
+    color: var(--white);
+    padding: 0.6rem 1.3rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.btn-whatsapp-header:hover {
+    background-color: var(--whatsapp-green-hover);
+    transform: scale(1.03);
+}
+
+.mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-heading);
+    cursor: pointer;
+}
+
+/* 2. HERO SECTION - Réplica Exacta de la franja azul de la imagen de referencia */
+.hero-section {
+    background-color: var(--brand-blue);
+    color: var(--white);
+    padding: 6.5rem 0 6rem 0;
+}
+
+.hero-content {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.hero-tagline {
+    display: block;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    opacity: 0.9;
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+}
+
+.hero-main-title {
+    font-family: var(--font-primary);
+    font-size: 3.4rem;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.5px;
+}
+
+.hero-subdescription {
+    font-size: 1.25rem;
+    font-weight: 400;
+    opacity: 0.92;
+    line-height: 1.6;
+    margin-bottom: 2.8rem;
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-cta-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.btn-hero-whatsapp {
+    background-color: var(--whatsapp-green);
+    color: var(--white);
+    padding: 1.05rem 2.2rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease;
+}
+
+.btn-hero-whatsapp:hover {
+    background-color: var(--whatsapp-green-hover);
+    transform: translateY(-2px);
+}
+
+.btn-hero-catalog {
+    border: 1.5px solid rgba(255, 255, 255, 0.5);
+    color: var(--white);
+    padding: 1.05rem 2.2rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+.btn-hero-catalog:hover {
+    background-color: var(--white);
+    color: var(--brand-blue);
+    border-color: var(--white);
+}
+
+/* 3. SECCIÓN ¿QUIÉNES SOMOS? - Réplica exacta del segundo bloque oscuro de la imagen */
+.about-dark-section {
+    background-color: var(--brand-dark);
+    color: var(--white);
+    padding: 5rem 0;
+}
+
+.about-dark-content {
+    max-width: 900px;
+}
+
+.about-tag {
+    color: var(--brand-blue);
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    font-weight: 800;
+    display: block;
+    margin-bottom: 0.6rem;
+}
+
+.about-dark-heading {
+    font-size: 2.4rem;
+    font-weight: 800;
+    margin-bottom: 1.2rem;
+    color: var(--white);
+}
+
+.about-dark-heading span {
+    opacity: 0.4;
+}
+
+.about-dark-lead {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.7;
+    margin-bottom: 3rem;
+}
+
+.experience-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.exp-feature-box {
+    background-color: var(--brand-dark-card);
+    padding: 1.8rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.exp-feature-box i {
+    font-size: 1.8rem;
+    color: var(--brand-blue);
+    margin-bottom: 1rem;
+}
+
+.exp-feature-box h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.exp-feature-box p {
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* 4. SECCIÓN PAQUETES POR SECTOR */
+.section {
+    padding: 5rem 0;
+}
+
+.category-packages-section {
+    background-color: var(--bg-gray);
+}
+
+.section-title-wrapper {
+    margin-bottom: 3rem;
+}
+
+.sub-label {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--brand-blue);
+    letter-spacing: 1.5px;
+}
+
+.section-title-wrapper h2 {
+    font-size: 2.2rem;
+    color: var(--text-heading);
+    margin: 0.4rem 0;
+}
+
+.section-title-wrapper p {
+    color: var(--text-body);
+}
+
+.sector-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+.sector-card {
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.sector-card.dark {
+    background-color: #0C1524;
+    color: var(--white);
+}
+
+.sector-card.blue {
+    background-color: var(--brand-blue);
+    color: var(--white);
+}
+
+.sector-card-header {
+    padding: 1.8rem 1.5rem 1rem 1.5rem;
+}
+
+.sector-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.sector-tag {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    opacity: 0.75;
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+.sector-card-header h3 {
+    font-size: 1.4rem;
+}
+
+.sector-card-body {
+    padding: 1rem 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.package-line {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.package-line:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.package-line strong {
+    font-size: 0.92rem;
+    display: block;
+}
+
+.package-line small {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    display: block;
+}
+
+.sector-card-footer {
+    padding: 1.25rem 1.5rem;
+}
+
+.btn-sector-dark {
+    display: block;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--white);
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.btn-sector-light {
+    display: block;
+    text-align: center;
+    background: var(--white);
+    color: var(--brand-blue);
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+/* 5. SECCIÓN CATÁLOGO DE PRODUCTOS / KITS */
+.catalog-section {
+    background-color: var(--white);
+}
+
+.filter-pills {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.pill-btn {
+    padding: 0.6rem 1.4rem;
+    border-radius: 50px;
+    border: 1px solid var(--border-color);
+    background: var(--white);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    cursor: pointer;
+}
+
+.pill-btn.active, .pill-btn:hover {
+    background-color: var(--brand-blue);
+    color: var(--white);
+    border-color: var(--brand-blue);
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.product-item {
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-badge-tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--brand-blue);
+    color: var(--white);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    z-index: 2;
+}
+
+.product-badge-tag.red {
+    background: #E11D48;
+}
+
+.product-img {
+    height: 190px;
+    overflow: hidden;
+}
+
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-category {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--brand-blue);
+    margin-bottom: 0.3rem;
+}
+
+.product-info h3 {
+    font-size: 1.2rem;
+    color: var(--text-heading);
+    margin-bottom: 0.5rem;
+}
+
+.product-summary {
+    font-size: 0.88rem;
+    color: var(--text-body);
+    margin-bottom: 1rem;
+}
+
+.product-specs {
+    margin-bottom: 1.5rem;
+}
+
+.product-specs li {
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.product-specs li i {
+    color: var(--whatsapp-green);
+}
+
+.product-action-row {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.price-box small {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+}
+
+.price-box strong {
+    font-size: 1.15rem;
+    color: var(--text-heading);
+}
+
+.btn-product-whatsapp {
+    background-color: var(--whatsapp-green);
+    color: var(--white);
+    padding: 0.65rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.88rem;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.btn-product-whatsapp:hover {
+    background-color: var(--whatsapp-green-hover);
+}
+
+/* 6. COTIZADOR PERSONALIZADO */
+.custom-quote-section {
+    background-color: var(--bg-gray);
+}
+
+.quote-box {
+    background-color: var(--white);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+    border: 1px solid var(--border-color);
+}
+
+.quote-tag {
+    color: var(--brand-blue);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.quote-header h3 {
+    font-size: 1.8rem;
+    color: var(--text-heading);
+    margin: 0.4rem 0;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.form-field label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin-bottom: 0.4rem;
+}
+
+.select-input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: var(--text-heading);
+    background-color: var(--white);
+}
+
+.margin-top-2 {
+    margin-top: 2rem;
+}
+
+/* 7. FOOTER Y MAPA */
+.footer-section {
+    background-color: var(--brand-dark);
+    color: rgba(255, 255, 255, 0.7);
+    padding-top: 4rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr;
+    gap: 3rem;
+    padding-bottom: 3rem;
+}
+
+.footer-col h3 {
+    color: var(--white);
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+}
+
+.footer-col h4 {
+    color: var(--white);
+    margin-bottom: 1.2rem;
+}
+
+.footer-col p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.footer-contacts p {
+    margin-bottom: 0.4rem;
+}
+
+.footer-contacts i {
+    color: var(--brand-blue);
+    margin-right: 0.4rem;
+}
+
+.links-col ul li {
+    margin-bottom: 0.6rem;
+}
+
+.links-col ul li a:hover {
+    color: var(--white);
+}
+
+.footer-bottom {
+    background-color: #060B14;
+    padding: 1.25rem 0;
+    font-size: 0.8rem;
+}
+
+/* BOTÓN FLOTANTE DE WHATSAPP */
+.floating-whatsapp-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--whatsapp-green);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    box-shadow: 0 4px 20px rgba(0, 214, 85, 0.4);
+    z-index: 2000;
+    transition: transform 0.2s ease;
+}
+
+.floating-whatsapp-btn:hover {
+    transform: scale(1.1);
+    background-color: var(--whatsapp-green-hover);
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .hero-main-title {
+        font-size: 2.6rem;
+    }
+    .experience-features-grid {
+        grid-template-columns: 1fr;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    .mobile-toggle {
+        display: block;
+    }
+    .hero-main-title {
+        font-size: 2.1rem;
+    }
+    .hero-subdescription {
+        font-size: 1.05rem;
+    }
+}

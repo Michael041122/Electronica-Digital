@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrónica Digital MX | Seguridad Electrónica y Telecomunicaciones</title>
+    <meta name="description" content="Instalación y venta de sistemas de seguridad, cámaras CCTV, control de acceso, alarmas y redes en Toluca y Estado de México. 15 años de experiencia.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header Navigation (Inspirado en la estructura limpia de VideoConfianza con la marca de Electrónica Digital MX) -->
+    <header class="navbar" id="navbar">
+        <div class="container navbar-container">
+            <a href="#" class="brand-logo">
+                <div class="logo-eye-icon">
+                    <i class="fa-solid fa-eye"></i>
+                    <div class="eye-pulse"></div>
+                </div>
+                <div class="logo-text">
+                    <span class="brand-name">Electrónica Digital <span class="brand-badge">MX</span></span>
+                    <span class="brand-subtext">Seguridad & Telecomunicaciones</span>
+                </div>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="#productos" class="nav-link">Productos</a>
+                
+                <!-- Dropdown de Servicios Estilo VideoConfianza -->
+                <div class="nav-dropdown">
+                    <a href="#servicios" class="nav-link dropdown-toggle">
+                        Servicios <i class="fa-solid fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="#cotizador" class="dropdown-item" onclick="filterCategory('cctv')">Cámaras de Seguridad</a>
+                        <a href="#cotizador" class="dropdown-item" onclick="filterCategory('dvr')">DVR y NVR</a>
+                        <a href="#cotizador" class="dropdown-item" onclick="filterCategory('acceso')">Control de Acceso</a>
+                        <a href="#cotizador" class="dropdown-item" onclick="filterCategory('videoportero')">Video Porteros</a>
+                        <a href="#cotizador" class="dropdown-item" onclick="filterCategory('alarmas')">Sistemas de Alarma</a>
+                        <a href="#cotizador" class="dropdown-item" onclick="filterCategory('redes')">Cableado Estructurado</a>
+                        <a href="#cotizador" class="dropdown-item" onclick="filterCategory('voip')">VoIP y PBX</a>
+                        <a href="#cotizador" class="dropdown-item" onclick="filterCategory('gps')">GPS y Rastreo Vehicular</a>
+                        <a href="#cotizador" class="dropdown-item" onclick="filterCategory('solares')">Paneles Solares</a>
+                        <a href="#cotizador" class="dropdown-item" onclick="filterCategory('led')">Iluminación LED</a>
+                        <a href="#cotizador" class="dropdown-item" onclick="filterCategory('climas')">Aires Acondicionados</a>
+                        <a href="#cotizador" class="dropdown-item" onclick="filterCategory('torniquetes')">Torniquetes</a>
+                        <a href="#cotizador" class="dropdown-item" onclick="filterCategory('av')">Integración AV</a>
+                    </div>
+                </div>
+
+                <a href="#cotizador" class="nav-link">Cotizar</a>
+                <a href="#nosotros" class="nav-link">Nosotros</a>
+                <a href="#contacto" class="nav-link">Contacto</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="https://wa.me/527227060068?text=Hola,%20me%20gustaría%20solicitar%20una%20cotización" target="_blank" class="btn btn-whatsapp-header">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                </a>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION (Réplica exacta de la estructura de la imagen de VideoConfianza con adaptación propia) -->
+    <section class="hero-section">
+        <div class="container hero-content text-center">
+            <span class="hero-tagline">COBERTURA Y SERVICIO EN TOLUCA Y ESTADO DE MÉXICO</span>
+            <h1 class="hero-main-title">Seguridad y Tecnología para tu Hogar y Empresa</h1>
+            <p class="hero-subdescription">
+                Instalamos y vendemos sistemas de cámaras, control de acceso, alarmas, redes y más. Técnicos certificados con más de 15 años de experiencia.
+            </p>
+            <div class="hero-cta-buttons">
+                <a href="https://wa.me/527227060068?text=Hola,%20me%20interesa%20cotizar%20un%20sistema%20de%20seguridad%20para%20mi%20inmueble" target="_blank" class="btn btn-hero-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i> Cotizar por WhatsApp
+                </a>
+                <a href="#cotizador" class="btn btn-hero-catalog">
+                    Ver catálogo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN "¿QUIÉNES SOMOS?" (Estilo idéntico a la segunda franja de la imagen de VideoConfianza) -->
+    <section class="about-dark-section" id="nosotros">
+        <div class="container about-dark-content">
+            <span class="about-tag font-bold">¿QUIÉNES SOMOS?</span>
+            <h2 class="about-dark-heading">No solo vendemos — <span>también instalamos</span></h2>
+            <p class="about-dark-lead">
+                <strong>Electrónica Digital MX</strong> es una empresa dedicada a brindar soluciones integrales de seguridad y tecnología. Desde hace 15 años hemos protegido hogares, negocios, escuelas y empresas en Toluca y todo el Estado de México.
+            </p>
+            <div class="experience-features-grid">
+                <div class="exp-feature-box">
+                    <i class="fa-solid fa-certificate"></i>
+                    <h4>Técnicos Certificados</h4>
+                    <p>Especialistas en configuración de CCTV, redes y control de acceso.</p>
+                </div>
+                <div class="exp-feature-box">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h4>Garantía Directa</h4>
+                    <p>Soporte técnico y garantía real en equipos e instalaciones.</p>
+                </div>
+                <div class="exp-feature-box">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <h4>Atención Local</h4>
+                    <p>Ubicados en Toluca con atención rápida en sitio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN PAQUETES POR SECTOR (Inspirado en los bloques de paquetes de camara-de-seguridad) -->
+    <section class="section category-packages-section" id="servicios">
+        <div class="container">
+            <div class="section-title-wrapper text-center">
+                <span class="sub-label">SOLUCIONES A TU MEDIDA</span>
+                <h2>Paquetes de Instalación y Equipamiento</h2>
+                <p>Selecciona tu paquete de interés y cotízalo directamente por WhatsApp</p>
+            </div>
+
+            <div class="sector-grid">
+                <!-- Tarjeta 1: Residencial -->
+                <div class="sector-card dark">
+                    <div class="sector-card-header">
+                        <div class="sector-icon"><i class="fa-solid fa-house-shield"></i></div>
+                        <span class="sector-tag">SERVICIO RESIDENCIAL</span>
+                        <h3>Cámaras para Hogar</h3>
+                    </div>
+                    <div class="sector-card-body">
+                        <div class="package-line" onclick="sendWhatsAppQuote('Kit Básico - 2 Cámaras Hogar', 'Consultar', '2 Cámaras + DVR + Disco 1TB + Instalación')">
+                            <div>
+                                <strong>Básico — 2 cámaras</strong>
+                                <small>Casas pequeñas · 1 zona crítica</small>
+                            </div>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                        <div class="package-line" onclick="sendWhatsAppQuote('Kit Estándar - 4 Cámaras Hogar', 'Consultar', '4 Cámaras + DVR + Disco 1TB + Instalación')">
+                            <div>
+                                <strong>Estándar — 4 cámaras</strong>
+                                <small>Casa media · cochera + perímetro</small>
+                            </div>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                        <div class="package-line" onclick="sendWhatsAppQuote('Kit Premium - 8 Cámaras Hogar', 'Consultar', '8 Cámaras + DVR + Disco 2TB + Instalación')">
+                            <div>
+                                <strong>Premium — 8 cámaras</strong>
+                                <small>Casa grande · cobertura total</small>
+                            </div>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                        <div class="package-line" onclick="sendWhatsAppQuote('Kit Residencial Plus - 16 Cámaras', 'Consultar', '16 Cámaras + DVR/NVR + Instalación')">
+                            <div>
+                                <strong>Residencial Plus — 16+</strong>
+                                <small>Residenciales · jardín y patios</small>
+                            </div>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    <div class="sector-card-footer">
+                        <a href="#cotizador" class="btn btn-sector-dark">Ver detalles y paquetes <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2: Comercial (Fondo azul fuerte) -->
+                <div class="sector-card blue">
+                    <div class="sector-card-header">
+                        <div class="sector-icon"><i class="fa-solid fa-store"></i></div>
+                        <span class="sector-tag">SERVICIO COMERCIAL</span>
+                        <h3>Cámaras para Comercio</h3>
+                    </div>
+                    <div class="sector-card-body">
+                        <div class="package-line" onclick="sendWhatsAppQuote('Kit Tienda - 4 Cámaras', 'Consultar', '4 Cámaras Full HD + DVR + Monitoreo Celular')">
+                            <div>
+                                <strong>Tienda — 4 cámaras</strong>
+                                <small>Punto de venta + entrada</small>
+                            </div>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                        <div class="package-line" onclick="sendWhatsAppQuote('Kit Oficina - 6 Cámaras', 'Consultar', '6 Cámaras + DVR + Disco 2TB')">
+                            <div>
+                                <strong>Oficina — 6 cámaras</strong>
+                                <small>Áreas comunes + accesos</small>
+                            </div>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                        <div class="package-line" onclick="sendWhatsAppQuote('Kit Bodega - 8 Cámaras', 'Consultar', '8 Cámaras Exterior IP67 + DVR')">
+                            <div>
+                                <strong>Bodega — 8 cámaras</strong>
+                                <small>Perímetro + interior</small>
+                            </div>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                        <div class="package-line" onclick="sendWhatsAppQuote('Kit Cadena - 16+ Cámaras', 'Consultar', '16+ Cámaras IP + NVR Corporativo')">
+                            <div>
+                                <strong>Cadena — 16+ cámaras</strong>
+                                <small>Multi-sucursal con monitoreo</small>
+                            </div>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    <div class="sector-card-footer">
+                        <a href="#cotizador" class="btn btn-sector-light">Ver detalles y paquetes <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3: Industrial -->
+                <div class="sector-card dark">
+                    <div class="sector-card-header">
+                        <div class="sector-icon"><i class="fa-solid fa-industry"></i></div>
+                        <span class="sector-tag">SERVICIO INDUSTRIAL</span>
+                        <h3>Sistemas Industriales</h3>
+                    </div>
+                    <div class="sector-card-body">
+                        <div class="package-line" onclick="sendWhatsAppQuote('Nave Industrial - 8 Cámaras IP', 'Consultar', '8 Cámaras IP PoE + NVR Nivel Industrial')">
+                            <div>
+                                <strong>Nave — 8 cámaras</strong>
+                                <small>Perímetro + área de carga</small>
+                            </div>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                        <div class="package-line" onclick="sendWhatsAppQuote('Planta Industrial - 16 Cámaras IP', 'Consultar', '16 Cámaras IP 4K + NVR Industrial')">
+                            <div>
+                                <strong>Planta — 16 cámaras</strong>
+                                <small>Producción + accesos + patios</small>
+                            </div>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                        <div class="package-line" onclick="sendWhatsAppQuote('Sistema Térmico / PTZ Industrial', 'Consultar', 'Cámaras Térmicas PTZ 360 + Analítica')">
+                            <div>
+                                <strong>Industrial Premium</strong>
+                                <small>Térmicas + PTZ + control acceso</small>
+                            </div>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                        <div class="package-line" onclick="sendWhatsAppQuote('Centro de Monitoreo NVR', 'Consultar', 'Servidor NVR + Videowall + Monitoreo')">
+                            <div>
+                                <strong>Centro de monitoreo</strong>
+                                <small>Cuarto de control y NVR de alta capacidad</small>
+                            </div>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    <div class="sector-card-footer">
+                        <a href="#cotizador" class="btn btn-sector-dark">Ver detalles y paquetes <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 4: Control de Acceso & Telecomunicaciones -->
+                <div class="sector-card blue">
+                    <div class="sector-card-header">
+                        <div class="sector-icon"><i class="fa-solid fa-shield-cat"></i></div>
+                        <span class="sector-tag">SERVICIO COMPLEMENTARIO</span>
+                        <h3>Control de Acceso</h3>
+                    </div>
+                    <div class="sector-card-body">
+                        <div class="package-line" onclick="sendWhatsAppQuote('Videoportero IP HD', 'Consultar', 'Frente de Calle IP + Monitor 7 pulg + App Celular')">
+                            <div>
+                                <strong>Videoportero IP</strong>
+                                <small>Pantalla + audio bidireccional</small>
+                            </div>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                        <div class="package-line" onclick="sendWhatsAppQuote('Cerradura Inteligente / Biométrica', 'Consultar', 'Huella Dactilar + Código + Tarjeta + App')">
+                            <div>
+                                <strong>Cerradura inteligente</strong>
+                                <small>App + huella + código</small>
+                            </div>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                        <div class="package-line" onclick="sendWhatsAppQuote('Biométrico de Asistencia', 'Consultar', 'Lector Huella/Rostro + Software de Asistencia')">
+                            <div>
+                                <strong>Biométrico</strong>
+                                <small>Huella, rostro o tarjeta</small>
+                            </div>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                        <div class="package-line" onclick="sendWhatsAppQuote('Acceso Vehicular / Torniquetes', 'Consultar', 'Pluma Vehicular + Torniquete Lector Placas')">
+                            <div>
+                                <strong>Acceso vehicular</strong>
+                                <small>Pluma + lector de placas</small>
+                            </div>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    <div class="sector-card-footer">
+                        <a href="#cotizador" class="btn btn-sector-light">Ver detalles y paquetes <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN CATÁLOGO DE PRODUCTOS / KITS CON COTIZADOR A WHATSAPP -->
+    <section class="section catalog-section" id="cotizador">
+        <div class="container">
+            <div class="section-title-wrapper text-center">
+                <span class="sub-label">CATÁLOGO Y COTIZADOR</span>
+                <h2>Kits de Seguridad Destacados</h2>
+                <p>Haz clic en "Cotizar Kit" para enviar la solicitud de precio e instalación directa a nuestro equipo</p>
+            </div>
+
+            <!-- Filtros de Categorías -->
+            <div class="filter-pills">
+                <button class="pill-btn active" data-filter="all">Todos los Kits</button>
+                <button class="pill-btn" data-filter="cctv">Cámaras CCTV</button>
+                <button class="pill-btn" data-filter="acceso">Control de Acceso</button>
+                <button class="pill-btn" data-filter="alarmas">Alarmas</button>
+                <button class="pill-btn" data-filter="redes">Redes & VoIP</button>
+            </div>
+
+            <!-- Grilla de Kits -->
+            <div class="products-grid">
+                <!-- Kit 1 -->
+                <div class="product-item" data-category="cctv">
+                    <div class="product-badge-tag">Más Solicitado</div>
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=600&q=80" alt="Kit 4 Cámaras 1080p">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category"><i class="fa-solid fa-video"></i> CCTV Residencial</span>
+                        <h3>Kit 4 Cámaras Full HD 1080p</h3>
+                        <p class="product-summary">DVR de 4 canales, Disco Duro 1TB, 4 Cámaras visión nocturna exterior/interior y accesorios completos.</p>
+                        <ul class="product-specs">
+                            <li><i class="fa-solid fa-check"></i> Visualización remota en Smartphone</li>
+                            <li><i class="fa-solid fa-check"></i> Visión nocturna infrarroja 20 metros</li>
+                            <li><i class="fa-solid fa-check"></i> Garantía y soporte técnico en Toluca</li>
+                        </ul>
+                        <div class="product-action-row">
+                            <div class="price-box">
+                                <small>Precio aproximado</small>
+                                <strong>$3,850 MXN</strong>
+                            </div>
+                            <button onclick="sendWhatsAppQuote('Kit 4 Cámaras Full HD 1080p', '$3,850 MXN', 'DVR 4Ch + Disco 1TB + 4 Cámaras IR + Fuentes + Accesorios')" class="btn btn-product-whatsapp">
+                                <i class="fa-brands fa-whatsapp"></i> Cotizar Kit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kit 2 -->
+                <div class="product-item" data-category="cctv">
+                    <div class="product-badge-tag red">Ideal Negocios</div>
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&w=600&q=80" alt="Kit 8 Cámaras 2MP">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category"><i class="fa-solid fa-store"></i> CCTV Comercial</span>
+                        <h3>Kit 8 Cámaras 2MP + Detección Movimiento</h3>
+                        <p class="product-summary">DVR 8 canales Lite, Disco 2TB especial de grabación continua, 8 Cámaras metalicas intemperie IP67.</p>
+                        <ul class="product-specs">
+                            <li><i class="fa-solid fa-check"></i> Notificaciones de movimiento a la App</li>
+                            <li><i class="fa-solid fa-check"></i> Respaldo prolongado de video</li>
+                            <li><i class="fa-solid fa-check"></i> Cobertura total de interior y exterior</li>
+                        </ul>
+                        <div class="product-action-row">
+                            <div class="price-box">
+                                <small>Precio aproximado</small>
+                                <strong>$6,950 MXN</strong>
+                            </div>
+                            <button onclick="sendWhatsAppQuote('Kit 8 Cámaras 2MP Comercial', '$6,950 MXN', 'DVR 8Ch + Disco 2TB + 8 Cámaras IP67 + Alertas Celular')" class="btn btn-product-whatsapp">
+                                <i class="fa-brands fa-whatsapp"></i> Cotizar Kit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kit 3 -->
+                <div class="product-item" data-category="acceso">
+                    <div class="product-badge-tag">Tecnología IP</div>
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=600&q=80" alt="Videoportero IP">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category"><i class="fa-solid fa-door-open"></i> Control de Acceso</span>
+                        <h3>Videoportero IP con Monitor Táctil 7"</h3>
+                        <p class="product-summary">Frente de calle exterior metálico HD con apertura remota desde App móvil y pantalla táctil interior.</p>
+                        <ul class="product-specs">
+                            <li><i class="fa-solid fa-check"></i> Atiende llamadas de tu puerta desde tu teléfono</li>
+                            <li><i class="fa-solid fa-check"></i> Integración con cerradura eléctrica</li>
+                            <li><i class="fa-solid fa-check"></i> Cámara HD con ángulo ultra amplio</li>
+                        </ul>
+                        <div class="product-action-row">
+                            <div class="price-box">
+                                <small>Precio aproximado</small>
+                                <strong>$4,490 MXN</strong>
+                            </div>
+                            <button onclick="sendWhatsAppQuote('Videoportero IP con Monitor Táctil 7 pulg', '$4,490 MXN', 'Frente calle HD + Monitor 7p + App Móvil + Apertura Chapa')" class="btn btn-product-whatsapp">
+                                <i class="fa-brands fa-whatsapp"></i> Cotizar Kit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULARIO DE COTIZACIÓN RÁPIDA A LA MEDIDA -->
+    <section class="section custom-quote-section">
+        <div class="container">
+            <div class="quote-box">
+                <div class="quote-header text-center">
+                    <span class="quote-tag"><i class="fa-solid fa-sliders"></i> COTIZACIÓN PERSONALIZADA</span>
+                    <h3>¿Buscas un proyecto o número de cámaras específico?</h3>
+                    <p>Arma tu combinación requerida y envíala al instante a nuestro WhatsApp de atención</p>
+                </div>
+                <form id="customForm" onsubmit="handleCustomKitSubmit(event)" class="quote-form">
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label><i class="fa-solid fa-building"></i> Inmueble</label>
+                            <select id="propertyType" class="select-input">
+                                <option value="Casa / Residencial">Casa / Residencial</option>
+                                <option value="Comercio / Tienda">Comercio / Tienda</option>
+                                <option value="Nave Industrial / Bodega">Nave Industrial / Bodega</option>
+                                <option value="Oficina / Corporativo">Oficina / Corporativo</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label><i class="fa-solid fa-video"></i> N° de Cámaras</label>
+                            <select id="cameraCount" class="select-input">
+                                <option value="2 Cámaras">2 Cámaras</option>
+                                <option value="4 Cámaras" selected>4 Cámaras</option>
+                                <option value="8 Cámaras">8 Cámaras</option>
+                                <option value="16 Cámaras">16 Cámaras</option>
+                                <option value="Más de 16 Cámaras (Proyecto)">Más de 16 Cámaras</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label><i class="fa-solid fa-tools"></i> Instalación</label>
+                            <select id="needInstallation" class="select-input">
+                                <option value="Sí, requiero instalación completa en sitio">Sí, requiero instalación en sitio</option>
+                                <option value="Solo requiero equipos preconfigurados">Solo equipos preconfigurados</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="text-center margin-top-2">
+                        <button type="submit" class="btn btn-hero-whatsapp">
+                            <i class="fa-brands fa-whatsapp"></i> Solicitar Presupuesto por WhatsApp
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER INFORMATIVO CON DATOS DE LA EMPRESA Y MAPA DE TOLUCA -->
+    <footer class="footer-section" id="contacto">
+        <div class="container footer-grid">
+            <div class="footer-col brand-col">
+                <div class="logo-eye-icon white font-size-lg">
+                    <i class="fa-solid fa-eye"></i>
+                </div>
+                <h3>Electrónica Digital MX</h3>
+                <p>Empresa mexicana establecida en Toluca especializada en instalación de cámaras de seguridad CCTV, videoporteros, controles de acceso y telecomunicaciones.</p>
+                <div class="footer-contacts font-size-sm">
+                    <p><i class="fa-solid fa-location-dot"></i> Heriberto Enríquez No. 606, Col. Santa María de las Rosas, Toluca, Edo. Méx.</p>
+                    <p><i class="fa-solid fa-phone"></i> 722 706 0068 | 722 396 7562</p>
+                    <p><i class="fa-solid fa-envelope"></i> electronica.digital.toluca@gmail.com</p>
+                    <p><i class="fa-solid fa-clock"></i> Lunes a Sábado: 7:00 AM – 4:00 PM</p>
+                </div>
+            </div>
+
+            <div class="footer-col links-col">
+                <h4>Servicios</h4>
+                <ul>
+                    <li><a href="#cotizador">Cámaras CCTV</a></li>
+                    <li><a href="#cotizador">Control de Acceso</a></li>
+                    <li><a href="#cotizador">Video Porteros IP</a></li>
+                    <li><a href="#cotizador">Sistemas de Alarma</a></li>
+                    <li><a href="#cotizador">Cableado Estructurado</a></li>
+                    <li><a href="#cotizador">GPS Vehicular</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col map-col">
+                <h4>Nuestra Ubicación en Toluca</h4>
+                <div class="map-box">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.817457788414!2d-99.6450!3d19.2780!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cd89be1f600000%3A0x1000000000000000!2sHeriberto%20Enr%C3%ADquez%20606%2C%20Santa%20Mar%C3%ADa%20de%20las%20Rosas%2C%2050140%20Toluca%20de%20Lerdo%2C%20M%C3%A9x.!5e0!3m2!1ses-419!2smx!4v1700000000000!5m2!1es-419!2smx" 
+                        width="100%" 
+                        height="180" 
+                        style="border:0; border-radius: 8px;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom text-center">
+            <div class="container">
+                <p>&copy; 2026 Electrónica Digital MX. Todos los derechos reservados. Proyecto de Residencia Profesional - ITESFPM.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón Flotante Verde de WhatsApp (Idéntico a la esquina de las referencias) -->
+    <a href="https://wa.me/527227060068?text=Hola,%20quisiera%20solicitar%20información%20sobre%20sus%20servicios" class="floating-whatsapp-btn" target="_blank" title="Cotizar por WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
