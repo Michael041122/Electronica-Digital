@@ -19,14 +19,89 @@
     --text-muted: #64748B;
     --white: #FFFFFF;
 
+    --bg-main: #FFFFFF;
     --bg-gray: #F8FAFC;
+    --bg-card: #FFFFFF;
     --border-color: #E2E8F0;
+
+    --hero-bg: linear-gradient(135deg, #154EE7 0%, #0D3BBD 50%, #0A2885 100%);
+    --card-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.85) 100%);
 
     --font-primary: 'Plus Jakarta Sans', sans-serif;
     --font-accent: 'Outfit', sans-serif;
 
     --shadow-card: 0 4px 20px rgba(15, 23, 42, 0.08);
-    --shadow-hover: 0 14px 34px rgba(21, 78, 231, 0.14);
+    --shadow-hover: 0 14px 34px rgba(21, 78, 231, 0.16);
+}
+
+/* Modo Oscuro Automático según Preferencias de Navegador / SO (prefers-color-scheme: dark) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-heading: #F8FAFC;
+        --text-body: #CBD5E1;
+        --text-muted: #94A3B8;
+
+        --bg-main: #060B14;
+        --bg-gray: #0A111F;
+        --bg-card: #0F1A2E;
+        --border-color: #1E293B;
+
+        --hero-bg: linear-gradient(135deg, #0F3DC3 0%, #0A257A 50%, #061545 100%);
+        --card-gradient: linear-gradient(180deg, rgba(18, 28, 46, 0.95) 0%, rgba(12, 20, 36, 0.85) 100%);
+
+        --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.45);
+        --shadow-hover: 0 16px 36px rgba(21, 78, 231, 0.35);
+    }
+
+    .navbar {
+        background-color: rgba(10, 17, 31, 0.95) !important;
+        border-bottom-color: #1E293B !important;
+    }
+
+    .brand-name {
+        color: #F8FAFC !important;
+    }
+
+    .nav-link {
+        color: #E2E8F0 !important;
+    }
+
+    .dropdown-menu {
+        background-color: #0F1A2E !important;
+        border-color: #1E293B !important;
+        box-shadow: 0 14px 36px rgba(0, 0, 0, 0.6) !important;
+    }
+
+    .dropdown-item {
+        color: #CBD5E1 !important;
+    }
+
+    .dropdown-item:hover {
+        background-color: #1E293B !important;
+        color: #38BDF8 !important;
+    }
+
+    .pill-btn {
+        background: #0F1A2E !important;
+        border-color: #334155 !important;
+        color: #E2E8F0 !important;
+    }
+
+    .quote-box {
+        background-color: #0F1A2E !important;
+        border-color: #1E293B !important;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    .select-input {
+        background-color: #0A111F !important;
+        border-color: #334155 !important;
+        color: #F8FAFC !important;
+    }
+
+    .mobile-toggle {
+        color: #F8FAFC !important;
+    }
 }
 
 /* Enfoque accesible WCAG 2.2 AAA */
@@ -50,8 +125,9 @@ html {
 body {
     font-family: var(--font-primary);
     color: var(--text-body);
-    background-color: var(--white);
+    background-color: var(--bg-main);
     line-height: 1.5;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -234,11 +310,25 @@ ul {
     cursor: pointer;
 }
 
-/* 2. HERO SECTION - Réplica Exacta de la franja azul de la imagen de referencia */
+/* 2. HERO SECTION - Gradiente y Profundidad */
 .hero-section {
-    background-color: var(--brand-blue);
+    background: var(--hero-bg);
     color: var(--white);
     padding: 6.5rem 0 6rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -20%;
+    width: 140%;
+    height: 200%;
+    background: radial-gradient(circle at 70% 30%, rgba(56, 189, 248, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 20% 80%, rgba(37, 211, 102, 0.08) 0%, transparent 50%);
+    pointer-events: none;
 }
 
 .hero-content {
@@ -580,7 +670,7 @@ ul {
     border: 1px solid var(--border-color);
     border-radius: 16px;
     overflow: hidden;
-    background-color: var(--white);
+    background: var(--card-gradient);
     box-shadow: var(--shadow-card);
     position: relative;
     display: flex;
@@ -929,7 +1019,7 @@ ul {
     transform: scale(1.15) translateX(-3px);
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE & MOBILE ERGONOMICS */
 @media (max-width: 992px) {
     .hero-main-title {
         font-size: 2.6rem;
@@ -943,16 +1033,79 @@ ul {
 }
 
 @media (max-width: 768px) {
+    .navbar {
+        height: 68px;
+    }
+    .navbar-container {
+        padding: 0 1rem;
+    }
     .nav-menu {
         display: none;
     }
     .mobile-toggle {
         display: block;
     }
+    .hero-section {
+        padding: 4.5rem 0 4rem 0;
+    }
     .hero-main-title {
-        font-size: 2.1rem;
+        font-size: 2rem;
+        line-height: 1.2;
     }
     .hero-subdescription {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    .hero-cta-buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.8rem;
+    }
+    .btn-hero-whatsapp, .btn-hero-catalog {
+        width: 100%;
+        justify-content: center;
+        padding: 0.9rem 1.5rem;
+    }
+    .section {
+        padding: 3.5rem 0;
+    }
+    .section-title-wrapper h2 {
+        font-size: 1.8rem;
+    }
+    .floating-social-group {
+        bottom: 18px;
+        right: 18px;
+        gap: 10px;
+    }
+    .floating-social-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 1.3rem;
+    }
+    .floating-social-btn.floating-whatsapp {
+        width: 52px;
+        height: 52px;
+        font-size: 1.7rem;
+    }
+    .quote-box {
+        padding: 2rem 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .brand-name {
         font-size: 1.05rem;
+    }
+    .brand-subtext {
+        font-size: 0.65rem;
+    }
+    .hero-main-title {
+        font-size: 1.75rem;
+    }
+    .package-line {
+        padding: 0.8rem 0.9rem;
+    }
+    .package-line strong {
+        font-size: 0.88rem;
     }
 }
