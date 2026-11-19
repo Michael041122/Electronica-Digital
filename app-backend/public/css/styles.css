@@ -15,8 +15,8 @@
     --whatsapp-green-hover: #00B849;
 
     --text-heading: #0F172A;
-    --text-body: #475569;
-    --text-muted: #94A3B8;
+    --text-body: #334155;
+    --text-muted: #64748B;
     --white: #FFFFFF;
 
     --bg-gray: #F8FAFC;
@@ -26,6 +26,13 @@
     --font-accent: 'Outfit', sans-serif;
 
     --shadow-card: 0 4px 20px rgba(15, 23, 42, 0.08);
+    --shadow-hover: 0 14px 34px rgba(21, 78, 231, 0.14);
+}
+
+/* Enfoque accesible WCAG 2.2 AAA */
+:focus-visible {
+    outline: 3px solid var(--brand-blue);
+    outline-offset: 3px;
 }
 
 /* Reset General */
@@ -420,6 +427,13 @@ ul {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 8px 24px rgba(10, 17, 31, 0.12);
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease;
+}
+
+.sector-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(10, 17, 31, 0.2);
 }
 
 .sector-card.dark {
@@ -464,28 +478,35 @@ ul {
 
 .package-line {
     background: rgba(255, 255, 255, 0.08);
-    padding: 0.8rem 1rem;
-    border-radius: 8px;
+    padding: 0.9rem 1.1rem;
+    min-height: 48px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    transition: background 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
 
 .package-line:hover {
-    background: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.16);
+    transform: translateX(4px);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .package-line strong {
-    font-size: 0.92rem;
+    font-size: 0.94rem;
     display: block;
+    color: var(--white);
+    letter-spacing: -0.2px;
 }
 
 .package-line small {
-    font-size: 0.75rem;
-    opacity: 0.7;
+    font-size: 0.78rem;
+    opacity: 0.85;
     display: block;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .sector-card-footer {
@@ -528,20 +549,25 @@ ul {
 }
 
 .pill-btn {
-    padding: 0.6rem 1.4rem;
+    padding: 0.65rem 1.5rem;
+    min-height: 44px;
     border-radius: 50px;
-    border: 1px solid var(--border-color);
+    border: 1.5px solid var(--border-color);
     background: var(--white);
-    font-size: 0.9rem;
+    font-size: 0.92rem;
     font-weight: 600;
     color: var(--text-heading);
     cursor: pointer;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+    transition: all 0.22s ease;
 }
 
 .pill-btn.active, .pill-btn:hover {
     background-color: var(--brand-blue);
     color: var(--white);
     border-color: var(--brand-blue);
+    box-shadow: 0 4px 14px rgba(21, 78, 231, 0.28);
+    transform: translateY(-2px);
 }
 
 .products-grid {
@@ -554,38 +580,56 @@ ul {
     border: 1px solid var(--border-color);
     border-radius: 16px;
     overflow: hidden;
+    background-color: var(--white);
     box-shadow: var(--shadow-card);
     position: relative;
     display: flex;
     flex-direction: column;
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.product-item:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(21, 78, 231, 0.35);
 }
 
 .product-badge-tag {
     position: absolute;
-    top: 12px;
-    left: 12px;
+    top: 14px;
+    left: 14px;
     background: var(--brand-blue);
     color: var(--white);
-    padding: 3px 10px;
+    padding: 5px 12px;
     border-radius: 20px;
-    font-size: 0.75rem;
+    font-size: 0.78rem;
     font-weight: 700;
+    letter-spacing: 0.3px;
     z-index: 2;
+    box-shadow: 0 4px 10px rgba(21, 78, 231, 0.25);
 }
 
 .product-badge-tag.red {
     background: #E11D48;
+    box-shadow: 0 4px 10px rgba(225, 29, 72, 0.25);
 }
 
 .product-img {
-    height: 190px;
+    height: 200px;
     overflow: hidden;
+    position: relative;
+    background: #0C1524;
 }
 
 .product-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.product-item:hover .product-img img {
+    transform: scale(1.05);
 }
 
 .product-info {
@@ -654,19 +698,29 @@ ul {
 .btn-product-whatsapp {
     background-color: var(--whatsapp-green);
     color: var(--white);
-    padding: 0.65rem 1.2rem;
-    border-radius: 8px;
+    padding: 0.75rem 1.35rem;
+    min-height: 44px;
+    border-radius: 10px;
     font-weight: 700;
-    font-size: 0.88rem;
+    font-size: 0.92rem;
     border: none;
     cursor: pointer;
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
+    justify-content: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 214, 85, 0.25);
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-product-whatsapp:hover {
     background-color: var(--whatsapp-green-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 214, 85, 0.35);
+}
+
+.btn-product-whatsapp:active {
+    transform: translateY(0);
 }
 
 /* 6. COTIZADOR PERSONALIZADO */
