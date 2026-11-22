@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión | Electrónica Digital MX</title>
+    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,17 +57,24 @@
             margin-bottom: 2rem;
         }
         .logo-box {
-            width: 54px;
-            height: 54px;
-            background: linear-gradient(135deg, var(--brand-blue) 0%, #0D3BBD 100%);
-            color: #fff;
-            border-radius: 12px;
+            width: 64px;
+            height: 64px;
+            background: #ffffff;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.6rem;
             margin: 0 auto 1rem auto;
-            box-shadow: 0 8px 16px rgba(21, 78, 231, 0.3);
+            border: 2px solid var(--border-color);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            padding: 3px;
+        }
+        .login-brand-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
         }
         .login-header h2 {
             font-family: 'Outfit', sans-serif;
@@ -187,7 +195,7 @@
     <div class="login-card">
         <div class="login-header">
             <div class="logo-box">
-                <i class="fa-solid fa-shield-halved"></i>
+                <img src="{{ asset('images/logo-emblem.png') }}" alt="Logo Electrónica Digital MX" class="login-brand-img">
             </div>
             <h2>Acceso Administrativo</h2>
             <p>Electrónica Digital MX · Toluca</p>

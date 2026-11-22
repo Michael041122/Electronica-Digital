@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Panel de Administración | Electrónica Digital MX')</title>
+    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,6 +31,7 @@
         /* Sidebar */
         .sidebar { width: 260px; background-color: var(--admin-sidebar); color: #fff; display: flex; flex-direction: column; flex-shrink: 0; }
         .sidebar-brand { padding: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; gap: 0.8rem; }
+        .admin-brand-img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; background: #fff; padding: 2px; border: 1.5px solid rgba(255,255,255,0.2); }
         .brand-icon { width: 38px; height: 38px; border-radius: 8px; background: var(--admin-blue); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
         .brand-text h2 { font-size: 1.1rem; font-family: 'Outfit', sans-serif; }
         .brand-text p { font-size: 0.7rem; color: #94A3B8; }
@@ -88,7 +90,7 @@
     <!-- Sidebar -->
     <aside class="sidebar">
         <div class="sidebar-brand">
-            <div class="brand-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <img src="{{ asset('images/logo-emblem.png') }}" alt="Logo Electrónica Digital MX" class="admin-brand-img">
             <div class="brand-text">
                 <h2>EDMX Admin</h2>
                 <p>Gestión y Control</p>

@@ -6,6 +6,8 @@
     <title>@yield('title', 'Electrónica Digital MX | Seguridad Electrónica y Telecomunicaciones')</title>
     <meta name="description" content="Instalación y venta de sistemas de seguridad, cámaras CCTV, control de acceso, alarmas y redes en Toluca y Estado de México. 15 años de experiencia.">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('favicon.png') }}">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,10 +22,8 @@
     <!-- Header Navigation -->
     <header class="navbar" id="navbar">
         <div class="container navbar-container">
-            <a href="{{ url('/') }}" class="brand-logo">
-                <div class="logo-eye-icon">
-                    <i class="fa-solid fa-eye"></i>
-                </div>
+            <a href="{{ url('/') }}" class="brand-logo" aria-label="Electrónica Digital MX Inicio">
+                <img src="{{ asset('images/logo-emblem.png') }}" alt="Logo Electrónica Digital MX" class="brand-logo-img">
                 <div class="logo-text">
                     <span class="brand-name">Electrónica Digital <span class="brand-badge">MX</span></span>
                     <span class="brand-subtext">Seguridad & Telecomunicaciones</span>
@@ -82,10 +82,13 @@
     <footer class="footer-section" id="contacto">
         <div class="container footer-grid">
             <div class="footer-col brand-col">
-                <div class="logo-eye-icon white font-size-lg">
-                    <i class="fa-solid fa-eye"></i>
+                <div class="footer-logo-wrapper">
+                    <img src="{{ asset('images/logo-emblem.png') }}" alt="Logo Electrónica Digital MX" class="footer-brand-img">
+                    <div class="footer-brand-title-wrap">
+                        <h3>Electrónica Digital <span class="brand-badge">MX</span></h3>
+                        <span class="footer-brand-subtitle">Seguridad & Telecomunicaciones</span>
+                    </div>
                 </div>
-                <h3>Electrónica Digital MX</h3>
                 <p>Empresa mexicana establecida en Toluca especializada en instalación de cámaras de seguridad CCTV, videoporteros, controles de acceso y telecomunicaciones.</p>
                 <div class="footer-contacts font-size-sm">
                     <p><i class="fa-solid fa-location-dot"></i> Heriberto Enríquez No. 606, Col. Santa María de las Rosas, Toluca, Edo. Méx.</p>
