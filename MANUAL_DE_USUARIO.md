@@ -104,3 +104,18 @@ Al terminar las labores administrativas:
 ### 7.4 Compatibilidad Multi-Dispositivo y Modos Claro/Oscuro
 - Menú de navegación móvil optimizado con contraste WCAG 2.2 AAA (sin textos transparentes o descoloridos).
 - Barra de navegación con botón unificado de WhatsApp en la cabecera superior y enlaces flotantes ergonómicos en la esquina inferior.
+
+### 7.5 Modificación de Datos de Usuario y Contraseña (`/admin/perfil`)
+- Ubicado en la barra lateral izquierda en **"Modificar Datos"** o haciendo clic en tu nombre en la barra superior.
+- Permite actualizar el **Nombre del Administrador** y el **Correo Electrónico de Acceso**.
+- Permite el **Cambio Seguro de Contraseña**, requiriendo ingresar la contraseña actual antes de establecer y confirmar la nueva clave de acceso.
+
+### 7.6 Centro de Documentación Integrado (`/admin/documentacion`)
+- Apartado dedicado en el menú lateral izquierdo donde el administrador puede consultar de forma directa:
+  - 📘 **Manual de Usuario:** Guía visual de operación.
+  - ⚙️ **Memoria Técnica:** Especificaciones de arquitectura y base de datos.
+  - 🚀 **Guía de Despliegue:** Puesta en producción y configuración en Render.
+
+### 7.7 Protección Estricta contra Retorno en Navegador (Anti-Back Cache)
+- Al hacer clic en **"Cerrar Sesión"**, el sistema invalida completamente la sesión en el servidor y envía directivas estrictas HTTP (`no-cache, no-store, must-revalidate`).
+- Si un usuario presiona la flecha **"Atrás"** en el navegador tras cerrar sesión, el sistema bloquea inmediatamente la visualización de páginas en caché e intercepta la navegación redirigiendo a la pantalla de `/login`.

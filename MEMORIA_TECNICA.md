@@ -161,3 +161,16 @@ graph TD
 ### 8.3 Ergonomía Visual Adaptativa (UI/UX Pro Max)
 - Variables CSS `:root` dinámicas con selector `@media (prefers-color-scheme: dark)` y reglas explícitas de contraste para componentes móviles (`.nav-menu.active`, `.nav-dropdown`).
 - Cumplimiento de WCAG 2.2 AAA en ratios de contraste tipográfico y zonas de interacción táctil superiores a 44x44 píxeles.
+
+### 8.4 Gestión de Perfil Administrativo (`ProfileController`)
+- **Ruta:** `admin.profile.edit` y `admin.profile.update` (`/admin/perfil`).
+- **Seguridad en Cambio de Credenciales:** Validación con regla `current_password` para verificar que quien modifica la contraseña conoce la clave anterior, previniendo secuestros de sesión en terminales desatendidas.
+
+### 8.5 Prevención de Fugas de Sesión en Historial del Navegador (`PreventBackHistory`)
+- **Problema Abordado:** Los navegadores modernos conservan páginas HTML en su memoria caché de navegación hacia adelante/atrás (Back/Forward Cache o Bfcache). Al cerrar sesión, presionar la flecha "Atrás" mostraba el DOM renderizado previamente.
+- **Implementación Técnica:**
+  1. Middleware `App\Http\Middleware\PreventBackHistory` inyectado en el grupo `admin` con directivas HTTP:
+     - `Cache-Control: no-cache, no-store, max-age=0, must-revalidate, post-check=0, pre-check=0`
+     - `Pragma: no-cache`
+     - `Expires: Sat, 01 Jan 2000 00:00:00 GMT`
+  2. Event listener JavaScript `pageshow` en `layouts/admin.blade.php`: si `event.persisted === true`, se fuerza la recarga síncrona `window.location.reload()`, lo cual dispara la validación HTTP contra el middleware `auth` de Laravel y redirige de inmediato a `/login`.

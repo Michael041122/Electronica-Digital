@@ -70,4 +70,44 @@ class ExampleTest extends TestCase
             'customer_name' => 'Juan Perez',
         ]);
     }
+
+    public function test_admin_responses_include_no_cache_headers(): void
+    {
+        $user = User::factory()->create();
+
+        $response = $this->actingAs($user)->get('/admin');
+        $response->assertStatus(200);
+        $response->assertHeader('Cache-Control');
+        $this->assertStringContainsString('no-store', $response->headers->get('Cache-Control'));
+    }
+
+    public function test_authenticated_user_can_access_profile_and_docs(): void
+    {
+        $user = User::factory()->create();
+
+        $this->actingAs($user)->get('/admin/perfil')->assertStatus(200);
+        $this->actingAs($user)->get('/admin/documentacion')->assertStatus(200);
+    }
+
+    public function test_user_can_update_profile_information(): void
+    {
+        $user = User::factory()->create([
+            'name' => 'Original Name',
+            'email' => 'original@test.com',
+        ]);
+
+        $response = $this->actingAs($user)->put('/admin/perfil', [
+            'name' => 'Updated Name',
+            'email' => 'updated@test.com',
+        ]);
+
+        $response->assertRedirect('/admin/perfil');
+        $response->assertSessionHas('success');
+
+        $this->assertDatabaseHas('users', [
+            'id' => $user->id,
+            'name' => 'Updated Name',
+            'email' => 'updated@test.com',
+        ]);
+    }
 }

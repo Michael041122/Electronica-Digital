@@ -99,6 +99,8 @@
         <ul class="sidebar-menu">
             <li><a href="{{ route('admin.dashboard') }}" class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
             <li><a href="{{ route('admin.kits.index') }}" class="{{ request()->routeIs('admin.kits.*') ? 'active' : '' }}"><i class="fa-solid fa-box-archive"></i> Kits de Seguridad</a></li>
+            <li><a href="{{ route('admin.profile.edit') }}" class="{{ request()->routeIs('admin.profile.*') ? 'active' : '' }}"><i class="fa-solid fa-user-gear"></i> Modificar Datos</a></li>
+            <li><a href="{{ route('admin.docs') }}" class="{{ request()->routeIs('admin.docs') ? 'active' : '' }}"><i class="fa-solid fa-book-open"></i> Documentación</a></li>
             <li><a href="{{ route('home') }}" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver Sitio Web</a></li>
         </ul>
         <div class="sidebar-footer">
@@ -115,10 +117,11 @@
     <div class="main-wrapper">
         <header class="topbar">
             <div class="topbar-title">@yield('page-title', 'Electrónica Digital MX')</div>
-            <div class="admin-profile">
+            <a href="{{ route('admin.profile.edit') }}" class="admin-profile" style="text-decoration:none; color:inherit;" title="Ver y Modificar Mi Perfil">
                 <div class="admin-avatar"><i class="fa-solid fa-user"></i></div>
-                <span>Ing. Josué Verónica (Gerente)</span>
-            </div>
+                <span>{{ Auth::user()->name ?? 'Administrador' }}</span>
+                <i class="fa-solid fa-gear" style="font-size:0.8rem; color:var(--admin-muted);"></i>
+            </a>
         </header>
 
         <main class="content-area">
@@ -132,6 +135,15 @@
             @yield('content')
         </main>
     </div>
+    <script>
+        // Protección contra caché de historial del navegador (Back/Forward Cache)
+        // Al cerrar sesión, si el usuario presiona la flecha 'Atrás', se fuerza la recarga y redirección a login
+        window.addEventListener('pageshow', function (event) {
+            if (event.persisted || (window.performance && window.performance.navigation && window.performance.navigation.type === 2)) {
+                window.location.reload();
+            }
+        });
+    </script>
     @yield('scripts')
 </body>
 </html>
