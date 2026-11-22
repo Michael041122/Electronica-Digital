@@ -8,6 +8,7 @@ const COMPANY_PHONE = '527227060068';
 document.addEventListener('DOMContentLoaded', () => {
     initCategoryFilter();
     initMobileNav();
+    initFaqAccordion();
 });
 
 /**
@@ -54,18 +55,50 @@ function initMobileNav() {
     const navMenu = document.getElementById('navMenu');
 
     if (mobileToggle && navMenu) {
-        mobileToggle.addEventListener('click', () => {
-            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
-            navMenu.style.flexDirection = 'column';
-            navMenu.style.position = 'absolute';
-            navMenu.style.top = '76px';
-            navMenu.style.left = '0';
-            navMenu.style.width = '100%';
-            navMenu.style.backgroundColor = '#ffffff';
-            navMenu.style.padding = '1.5rem';
-            navMenu.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+        mobileToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navMenu.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        navMenu.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Cerrar menú al hacer clic fuera
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+                navMenu.classList.remove('active');
+            }
         });
     }
+}
+
+/**
+ * 2.1 Acordeón de Preguntas Frecuentes (FAQ)
+ */
+function initFaqAccordion() {
+    const faqButtons = document.querySelectorAll('.faq-question');
+    
+    faqButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const faqItem = button.closest('.faq-item');
+            const isActive = faqItem.classList.contains('active');
+            
+            // Cerrar otros acordeones si se desea comportamiento único
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+                item.querySelector('.faq-question')?.setAttribute('aria-expanded', 'false');
+            });
+            
+            if (!isActive) {
+                faqItem.classList.add('active');
+                button.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
 }
 
 /**

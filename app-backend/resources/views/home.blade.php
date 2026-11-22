@@ -308,4 +308,72 @@
             </div>
         </div>
     </section>
+
+    <!-- SECCIÓN PREGUNTAS FRECUENTES (FAQ INTERACTIVO) -->
+    <section class="section faq-section" id="faq">
+        <div class="container">
+            <div class="section-title-wrapper text-center">
+                <span class="sub-label">RESOLVEMOS TUS DUDAS</span>
+                <h2>Preguntas Frecuentes de Clientes</h2>
+                <p>Todo lo que necesitas saber sobre instalaciones, equipos, garantías y presupuestos.</p>
+            </div>
+
+            <div class="faq-accordion-container">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span><i class="fa-solid fa-circle-question faq-icon"></i> ¿Qué incluye el costo de instalación de los kits de cámaras?</span>
+                        <i class="fa-solid fa-chevron-down faq-arrow"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Nuestros paquetes incluyen el montaje y fijación técnica de las cámaras (en interior o intemperie), cableado estructurado protegido, configuración del DVR/NVR, disco duro para grabación continua, fuentes de alimentación y la configuración en los teléfonos celulares de los usuarios para monitoreo remoto en tiempo real sin costos mensuales.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span><i class="fa-solid fa-mobile-screen-button faq-icon"></i> ¿Puedo ver las cámaras de seguridad desde mi celular fuera de casa o negocio?</span>
+                        <i class="fa-solid fa-chevron-down faq-arrow"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sí, al 100%. Todos los sistemas que instalamos se vinculan a la aplicación móvil oficial en tu smartphone (Android o iOS). Podrás ver video en vivo en alta definición, revisar grabaciones anteriores y recibir notificaciones instantáneas de detección de movimiento desde cualquier parte del mundo con conexión a internet.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span><i class="fa-solid fa-file-invoice-dollar faq-icon"></i> ¿Se cobran mensualidades o rentas por el monitoreo?</span>
+                        <i class="fa-solid fa-chevron-down faq-arrow"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No. En Electrónica Digital MX los equipos y el sistema son 100% de tu propiedad. No cobramos rentas mensuales, contratos forzosos ni anualidades por la visualización móvil o almacenamiento en tu disco duro.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span><i class="fa-solid fa-shield-halved faq-icon"></i> ¿Tienen garantía los equipos e instalaciones?</span>
+                        <i class="fa-solid fa-chevron-down faq-arrow"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sí. Ofrecemos 1 año de garantía directa por escrito contra defectos de fábrica en equipos y garantía de satisfacción técnica en mano de obra e instalación. Contamos con 15 años de experiencia comprobada en Toluca y el Estado de México.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span><i class="fa-solid fa-map-location-dot faq-icon"></i> ¿Hacen visitas técnicas para diagnóstico antes de cotizar?</span>
+                        <i class="fa-solid fa-chevron-down faq-arrow"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Por supuesto. Si tienes una propiedad grande, nave industrial o negocio con requerimientos especiales, podemos agendar un levantamiento técnico en sitio en Toluca y municipios metropolitanos para asesorarte sobre las mejores ubicaciones de cámaras y ángulos de cobertura sin compromiso.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 @endsection

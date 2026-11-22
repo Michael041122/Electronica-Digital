@@ -57,16 +57,11 @@
 
                 <a href="#cotizador" class="nav-link">Cotizar</a>
                 <a href="#nosotros" class="nav-link">Nosotros</a>
+                <a href="#faq" class="nav-link">Preguntas Frecuentes</a>
                 <a href="#contacto" class="nav-link">Contacto</a>
             </nav>
 
             <div class="nav-actions">
-                <a href="https://www.facebook.com" target="_blank" class="nav-social-icon facebook" title="Facebook Electrónica Digital MX">
-                    <i class="fa-brands fa-facebook-f"></i>
-                </a>
-                <a href="https://www.instagram.com" target="_blank" class="nav-social-icon instagram" title="Instagram Electrónica Digital MX">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
                 <a href="https://wa.me/527227060068?text=Hola,%20me%20gustaría%20solicitar%20una%20cotización" target="_blank" class="btn btn-whatsapp-header">
                     <i class="fa-brands fa-whatsapp"></i> WhatsApp
                 </a>
