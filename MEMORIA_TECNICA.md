@@ -142,3 +142,22 @@ graph TD
 - **PHP:** 8.2+ con extensiones: `pdo_mysql`, `mbstring`, `openssl`, `bcmath`, `curl`.
 - **Base de Datos:** MySQL 8.0+ o MariaDB 10.4+.
 - **Herramienta de despliegue automatizado:** Dockerfile multi-stage con optimización de caché (`config:cache`, `route:cache`, `view:cache`).
+
+---
+
+## 8. Arquitectura de Módulos Recientes (Búsqueda, Storage y UI Móvil)
+
+### 8.1 Sistema de Carga de Archivos de Imagen (`Illuminate\Support\Facades\Storage`)
+- **Controlador:** `ProductKitAdminController@store` y `@update`.
+- **Validación:** `'image_file' => 'nullable|image|mimes:jpg,jpeg,png,webp,svg|max:3072'`.
+- **Almacenamiento:** Disco `public` (`storage/app/public/kits/`), referenciado mediante symlink `php artisan storage:link`.
+- **Renderizado Adaptativo:** Componente Blade `<x-product-card>` valida si el campo `image_url` corresponde a un recurso local (`asset('storage/' . $kit->image_url)`) o a una URL externa absoluta (`http://` o `https://`).
+
+### 8.2 Motor de Búsqueda Reactivo en Cliente (`public/js/script.js`)
+- Función `applyCatalogFilters()` ejecutada reactivamente en el evento `input` del elemento `#catalogSearch` y en el evento `click` de `.pill-btn`.
+- Coincidencia en tiempo real con normalización de caracteres sobre `title`, `description`, `specs`, `badges` y `category`.
+- Fallback visual interactivo (`#noSearchResults`) con botón directo a WhatsApp ante búsquedas sin coincidencia.
+
+### 8.3 Ergonomía Visual Adaptativa (UI/UX Pro Max)
+- Variables CSS `:root` dinámicas con selector `@media (prefers-color-scheme: dark)` y reglas explícitas de contraste para componentes móviles (`.nav-menu.active`, `.nav-dropdown`).
+- Cumplimiento de WCAG 2.2 AAA en ratios de contraste tipográfico y zonas de interacción táctil superiores a 44x44 píxeles.

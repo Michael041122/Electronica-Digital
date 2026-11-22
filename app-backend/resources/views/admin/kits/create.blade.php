@@ -17,7 +17,7 @@
 
 @section('content')
     <div class="card">
-        <form action="{{ route('admin.kits.store') }}" method="POST">
+        <form action="{{ route('admin.kits.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-grid">
                 <div class="form-group">
@@ -49,8 +49,13 @@
                     <input type="text" name="specs_summary" class="form-input" placeholder="Ej. DVR 4Ch + Disco 1TB + 4 Cámaras IR + Fuentes y Cableado" required>
                 </div>
 
-                <div class="form-group full">
-                    <label class="form-label">URL de Imagen del Producto</label>
+                <div class="form-group">
+                    <label class="form-label">Subir Imagen desde el Dispositivo (Recomendado)</label>
+                    <input type="file" name="image_file" class="form-input" accept="image/png, image/jpeg, image/webp">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">O enlace URL de Imagen</label>
                     <input type="url" name="image_url" class="form-input" placeholder="https://images.unsplash.com/...">
                 </div>
 

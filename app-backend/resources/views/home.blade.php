@@ -50,6 +50,40 @@
         </div>
     </section>
 
+    <!-- SECCIÓN MARCAS LÍDERES QUE INSTALAMOS (PRUEBA SOCIAL Y CONFIANZA) -->
+    <section class="brands-section">
+        <div class="container text-center">
+            <span class="brands-subtitle">EQUIPAMIENTO PROFESIONAL</span>
+            <h3 class="brands-title">Marcas Líderes Certificadas con las que Trabajamos</h3>
+            <div class="brands-grid">
+                <div class="brand-item">
+                    <span class="brand-logo-text"><i class="fa-solid fa-video"></i> HIKVISION</span>
+                    <small>CCTV & Analítica AI</small>
+                </div>
+                <div class="brand-item">
+                    <span class="brand-logo-text"><i class="fa-solid fa-camera"></i> DAHUA</span>
+                    <small>Tecnología IP & Térmica</small>
+                </div>
+                <div class="brand-item">
+                    <span class="brand-logo-text"><i class="fa-solid fa-shield-halved"></i> EPCOM</span>
+                    <small>Seguridad & Telecom</small>
+                </div>
+                <div class="brand-item">
+                    <span class="brand-logo-text"><i class="fa-solid fa-eye"></i> HILOOK</span>
+                    <small>Videovigilancia Confiable</small>
+                </div>
+                <div class="brand-item">
+                    <span class="brand-logo-text"><i class="fa-solid fa-fingerprint"></i> ZKTECO</span>
+                    <small>Biométricos & Acceso</small>
+                </div>
+                <div class="brand-item">
+                    <span class="brand-logo-text"><i class="fa-solid fa-network-wired"></i> TP-LINK</span>
+                    <small>Redes & Switches PoE</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- SECCIÓN PAQUETES POR SECTOR (Componentes Reutilizables de Bloque) -->
     <section class="section category-packages-section" id="servicios">
         <div class="container">
@@ -227,6 +261,48 @@
                         <a href="#cotizador" class="btn btn-sector-light">Ver detalles y paquetes <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
+
+                <!-- Tarjeta 5: Servicio Especializado de Mantenimiento -->
+                <div class="sector-card dark">
+                    <div class="sector-card-header">
+                        <div class="sector-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                        <span class="sector-tag">SERVICIO TÉCNICO ESPECIALIZADO</span>
+                        <h3>Mantenimiento y Reparación</h3>
+                    </div>
+                    <div class="sector-card-body">
+                        <div class="package-line" onclick="sendWhatsAppQuote('Mantenimiento Preventivo CCTV', 'Cotizar Visita', 'Limpieza óptica + ajuste enfoque + revisión fuentes y DVR')">
+                            <div>
+                                <strong>Mantenimiento Preventivo</strong>
+                                <small>Limpieza de lentes, fuentes y DVR</small>
+                            </div>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                        <div class="package-line" onclick="sendWhatsAppQuote('Mantenimiento Correctivo / Reparación', 'Cotizar Diagnóstico', 'Cámaras sin video + reemplazo disco + reseteo contraseñas')">
+                            <div>
+                                <strong>Reparación y Diagnóstico</strong>
+                                <small>Fallas de señal, video negro y fuentes</small>
+                            </div>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                        <div class="package-line" onclick="sendWhatsAppQuote('Reubicación y Cableado de Cámaras', 'Cotizar en Sitio', 'Cambio de posición + nuevo cableado estructurado protegido')">
+                            <div>
+                                <strong>Reubicación de Equipos</strong>
+                                <small>Cambio de lugar de cámaras y cables</small>
+                            </div>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                        <div class="package-line" onclick="sendWhatsAppQuote('Póliza Mensual / Anual para Negocios', 'A Medida', 'Visitas periódicas programadas + soporte técnico prioritario')">
+                            <div>
+                                <strong>Pólizas de Servicio</strong>
+                                <small>Planes para comercios, escuelas y naves</small>
+                            </div>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    <div class="sector-card-footer">
+                        <a href="#cotizador" class="btn btn-sector-dark">Solicitar Mantenimiento <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -238,6 +314,15 @@
                 <span class="sub-label">CATÁLOGO Y COTIZADOR</span>
                 <h2>Kits de Seguridad Destacados</h2>
                 <p>Haz clic en "Cotizar Kit" para enviar la solicitud de precio e instalación directa a nuestro equipo</p>
+            </div>
+
+            <!-- Barra de Búsqueda Interactiva en Tiempo Real (Inciso D) -->
+            <div class="search-catalog-wrapper">
+                <div class="search-input-box">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="catalogSearch" class="catalog-search-field" placeholder="Buscar por modelo, cámaras (ej. 4 cámaras, videoportero, alarma)..." autocomplete="off">
+                    <button type="button" id="clearSearchBtn" class="clear-search-btn" style="display:none;"><i class="fa-solid fa-xmark"></i></button>
+                </div>
             </div>
 
             <!-- Filtros Dinámicos de Categorías -->
@@ -371,6 +456,28 @@
                     </button>
                     <div class="faq-answer">
                         <p>Por supuesto. Si tienes una propiedad grande, nave industrial o negocio con requerimientos especiales, podemos agendar un levantamiento técnico en sitio en Toluca y municipios metropolitanos para asesorarte sobre las mejores ubicaciones de cámaras y ángulos de cobertura sin compromiso.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6: Mantenimiento -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span><i class="fa-solid fa-wrench faq-icon"></i> ¿Ofrecen servicio de mantenimiento si mis cámaras ya están instaladas o las compré por mi cuenta?</span>
+                        <i class="fa-solid fa-chevron-down faq-arrow"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sí. Brindamos servicio técnico correctivo y preventivo multimarca (Hikvision, Dahua, Epcom, etc.). Diagnosticamos cámaras sin video o con imagen borrosa, corregimos cableados dañados, reemplazamos fuentes de poder defectuosas, recuperamos contraseñas olvidadas de grabadores y reconfiguramos la conexión en tus celulares.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 7: Formas de Pago -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span><i class="fa-solid fa-credit-card faq-icon"></i> ¿Cuáles son las formas de pago y tiempos de entrega?</span>
+                        <i class="fa-solid fa-chevron-down faq-arrow"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Aceptamos transferencias electrónicas SPEI, pagos con tarjeta de crédito/débito y efectivo. La mayoría de instalaciones residenciales y comerciales estándar de 4 a 8 cámaras se concluyen y entregan en funcionamiento el mismo día programado.</p>
                     </div>
                 </div>
             </div>

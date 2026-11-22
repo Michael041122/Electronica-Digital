@@ -7,32 +7,66 @@ const COMPANY_PHONE = '527227060068';
 
 document.addEventListener('DOMContentLoaded', () => {
     initCategoryFilter();
+    initCatalogSearch();
     initMobileNav();
     initFaqAccordion();
 });
 
 /**
- * 1. Filtrado dinámico de Kits por categorías
+ * 1. Filtrado dinámico de Kits por categorías y búsqueda unificada
  */
+function applyCatalogFilters() {
+    const searchInput = document.getElementById('catalogSearch');
+    const clearBtn = document.getElementById('clearSearchBtn');
+    const productItems = document.querySelectorAll('.product-item');
+    const noResultsNotice = document.getElementById('noSearchResults');
+
+    const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+    if (clearBtn) {
+        clearBtn.style.display = query.length > 0 ? 'block' : 'none';
+    }
+
+    const currentActivePill = document.querySelector('.pill-btn.active');
+    const activeCategory = currentActivePill ? currentActivePill.getAttribute('data-filter') : 'all';
+
+    let visibleCount = 0;
+
+    productItems.forEach(item => {
+        const category = item.getAttribute('data-category') || '';
+        const title = item.querySelector('.product-title')?.textContent.toLowerCase() || '';
+        const desc = item.querySelector('.product-description')?.textContent.toLowerCase() || '';
+        const specs = item.querySelector('.product-specs')?.textContent.toLowerCase() || '';
+        const badges = item.querySelector('.product-badge')?.textContent.toLowerCase() || '';
+
+        const matchesCategory = (activeCategory === 'all' || category === activeCategory);
+        const matchesQuery = query === '' || 
+            title.includes(query) || 
+            desc.includes(query) || 
+            specs.includes(query) || 
+            badges.includes(query) ||
+            category.includes(query);
+
+        if (matchesCategory && matchesQuery) {
+            item.style.display = 'flex';
+            visibleCount++;
+        } else {
+            item.style.display = 'none';
+        }
+    });
+
+    if (noResultsNotice) {
+        noResultsNotice.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+}
+
 function initCategoryFilter() {
     const pillButtons = document.querySelectorAll('.pill-btn');
-    const productItems = document.querySelectorAll('.product-item');
 
     pillButtons.forEach(button => {
         button.addEventListener('click', () => {
             pillButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
-
-            const filterValue = button.getAttribute('data-filter');
-
-            productItems.forEach(item => {
-                const category = item.getAttribute('data-category');
-                if (filterValue === 'all' || category === filterValue) {
-                    item.style.display = 'flex';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
+            applyCatalogFilters();
         });
     });
 }
@@ -48,11 +82,51 @@ function filterCategory(catSlug) {
 }
 
 /**
- * 2. Menú de navegación móvil
+ * 1.1 Búsqueda en tiempo real en el catálogo (Inciso D)
+ */
+function initCatalogSearch() {
+    const searchInput = document.getElementById('catalogSearch');
+    const clearBtn = document.getElementById('clearSearchBtn');
+    const catalogGrid = document.querySelector('.catalog-grid');
+
+    if (!searchInput) return;
+
+    // Crear aviso de "No se encontraron resultados" dentro de catalog-grid
+    if (catalogGrid && !document.getElementById('noSearchResults')) {
+        const noNotice = document.createElement('div');
+        noNotice.id = 'noSearchResults';
+        noNotice.className = 'no-search-results';
+        noNotice.style.display = 'none';
+        noNotice.innerHTML = `
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <h4>No encontramos paquetes con ese término</h4>
+            <p>Intenta con otra palabra clave (ej. "4 cámaras", "wifi", "alarma", "hikvision") o contáctanos para armar tu paquete a la medida.</p>
+            <a href="https://wa.me/${COMPANY_PHONE}?text=Hola,%20busco%20un%20equipo%20específico%20que%20no%20encontré%20en%20el%20catálogo" target="_blank" class="btn btn-whatsapp-header" style="margin-top: 1rem; display: inline-flex;">
+                <i class="fa-brands fa-whatsapp"></i> Preguntar por WhatsApp
+            </a>
+        `;
+        catalogGrid.appendChild(noNotice);
+    }
+
+    searchInput.addEventListener('input', applyCatalogFilters);
+
+    if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            applyCatalogFilters();
+            searchInput.focus();
+        });
+    }
+}
+
+/**
+ * 2. Menú de navegación móvil con soporte para submenú desplegable
  */
 function initMobileNav() {
     const mobileToggle = document.getElementById('mobileToggle');
     const navMenu = document.getElementById('navMenu');
+    const dropdownToggle = document.querySelector('.dropdown-toggle');
+    const navDropdown = document.querySelector('.nav-dropdown');
 
     if (mobileToggle && navMenu) {
         mobileToggle.addEventListener('click', (e) => {
@@ -60,10 +134,21 @@ function initMobileNav() {
             navMenu.classList.toggle('active');
         });
 
-        // Cerrar menú al hacer clic en un enlace
-        navMenu.querySelectorAll('.nav-link').forEach(link => {
+        // Desplegar menú de servicios en móviles al hacer clic
+        if (dropdownToggle && navDropdown) {
+            dropdownToggle.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    navDropdown.classList.toggle('open');
+                }
+            });
+        }
+
+        // Cerrar menú al hacer clic en un enlace de navegación
+        navMenu.querySelectorAll('.nav-link:not(.dropdown-toggle), .dropdown-item').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
+                if (navDropdown) navDropdown.classList.remove('open');
             });
         });
 
@@ -71,6 +156,7 @@ function initMobileNav() {
         document.addEventListener('click', (e) => {
             if (!navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
                 navMenu.classList.remove('active');
+                if (navDropdown) navDropdown.classList.remove('open');
             }
         });
     }

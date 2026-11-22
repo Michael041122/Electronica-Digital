@@ -8,7 +8,13 @@
     @endif
 
     <div class="product-img">
-        <img src="{{ $kit->image_url ?? 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=600&q=80' }}" alt="{{ $kit->name }}" loading="lazy">
+        @php
+            $imgSrc = $kit->image_url ?? 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=600&q=80';
+            if ($kit->image_url && !str_starts_with($kit->image_url, 'http')) {
+                $imgSrc = asset('storage/' . $kit->image_url);
+            }
+        @endphp
+        <img src="{{ $imgSrc }}" alt="{{ $kit->name }}" loading="lazy">
     </div>
 
     <div class="product-info">

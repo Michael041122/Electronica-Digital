@@ -17,7 +17,7 @@
 
 @section('content')
     <div class="card">
-        <form action="{{ route('admin.kits.update', $kit) }}" method="POST">
+        <form action="{{ route('admin.kits.update', $kit) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="form-grid">
@@ -50,9 +50,14 @@
                     <input type="text" name="specs_summary" class="form-input" value="{{ old('specs_summary', $kit->specs_summary) }}" required>
                 </div>
 
-                <div class="form-group full">
-                    <label class="form-label">URL de Imagen del Producto</label>
-                    <input type="url" name="image_url" class="form-input" value="{{ old('image_url', $kit->image_url) }}">
+                <div class="form-group">
+                    <label class="form-label">Actualizar Imagen desde Dispositivo</label>
+                    <input type="file" name="image_file" class="form-input" accept="image/png, image/jpeg, image/webp">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">O enlace URL de Imagen</label>
+                    <input type="text" name="image_url" class="form-input" value="{{ old('image_url', $kit->image_url) }}">
                 </div>
 
                 <div class="form-group full">

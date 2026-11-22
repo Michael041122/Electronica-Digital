@@ -31,7 +31,8 @@ class ProductKitAdminController extends Controller
             'estimated_price' => 'nullable|numeric|min:0',
             'specs_summary' => 'required|string',
             'description' => 'nullable|string',
-            'image_url' => 'nullable|url|max:255',
+            'image_url' => 'nullable|string|max:255',
+            'image_file' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:3072',
             'features_text' => 'nullable|string',
             'includes_installation' => 'nullable|boolean',
             'is_active' => 'nullable|boolean',
@@ -42,6 +43,11 @@ class ProductKitAdminController extends Controller
             $features = array_filter(array_map('trim', explode("\n", $validated['features_text'])));
         }
 
+        $imagePath = $validated['image_url'] ?? 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=600&q=80';
+        if ($request->hasFile('image_file')) {
+            $imagePath = $request->file('image_file')->store('kits', 'public');
+        }
+
         ProductKit::create([
             'category_id' => $validated['category_id'],
             'name' => $validated['name'],
@@ -50,7 +56,7 @@ class ProductKitAdminController extends Controller
             'estimated_price' => $validated['estimated_price'] ?? null,
             'specs_summary' => $validated['specs_summary'],
             'description' => $validated['description'] ?? null,
-            'image_url' => $validated['image_url'] ?? 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=600&q=80',
+            'image_url' => $imagePath,
             'features' => $features,
             'includes_installation' => $request->has('includes_installation'),
             'is_active' => $request->has('is_active'),
@@ -74,7 +80,8 @@ class ProductKitAdminController extends Controller
             'estimated_price' => 'nullable|numeric|min:0',
             'specs_summary' => 'required|string',
             'description' => 'nullable|string',
-            'image_url' => 'nullable|url|max:255',
+            'image_url' => 'nullable|string|max:255',
+            'image_file' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:3072',
             'features_text' => 'nullable|string',
             'includes_installation' => 'nullable|boolean',
             'is_active' => 'nullable|boolean',
@@ -85,6 +92,13 @@ class ProductKitAdminController extends Controller
             $features = array_filter(array_map('trim', explode("\n", $validated['features_text'])));
         }
 
+        $imagePath = $kit->image_url;
+        if ($request->hasFile('image_file')) {
+            $imagePath = $request->file('image_file')->store('kits', 'public');
+        } elseif (!empty($validated['image_url'])) {
+            $imagePath = $validated['image_url'];
+        }
+
         $kit->update([
             'category_id' => $validated['category_id'],
             'name' => $validated['name'],
@@ -92,7 +106,7 @@ class ProductKitAdminController extends Controller
             'estimated_price' => $validated['estimated_price'] ?? null,
             'specs_summary' => $validated['specs_summary'],
             'description' => $validated['description'] ?? null,
-            'image_url' => $validated['image_url'] ?? $kit->image_url,
+            'image_url' => $imagePath,
             'features' => $features,
             'includes_installation' => $request->has('includes_installation'),
             'is_active' => $request->has('is_active'),

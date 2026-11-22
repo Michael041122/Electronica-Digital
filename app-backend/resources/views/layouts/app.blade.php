@@ -52,6 +52,7 @@
                         <a href="#cotizador" class="dropdown-item" onclick="filterCategory('climas')">Aires Acondicionados</a>
                         <a href="#cotizador" class="dropdown-item" onclick="filterCategory('torniquetes')">Torniquetes</a>
                         <a href="#cotizador" class="dropdown-item" onclick="filterCategory('av')">Integración AV</a>
+                        <a href="#servicios" class="dropdown-item" style="color: var(--brand-blue); font-weight: 700; border-top: 1px solid var(--border-color);"><i class="fa-solid fa-screwdriver-wrench"></i> Mantenimiento y Reparación</a>
                     </div>
                 </div>
 
@@ -63,7 +64,7 @@
 
             <div class="nav-actions">
                 <a href="https://wa.me/527227060068?text=Hola,%20me%20gustaría%20solicitar%20una%20cotización" target="_blank" class="btn btn-whatsapp-header">
-                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                    <i class="fa-brands fa-whatsapp"></i> <span>WhatsApp</span>
                 </a>
                 <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú">
                     <i class="fa-solid fa-bars"></i>
