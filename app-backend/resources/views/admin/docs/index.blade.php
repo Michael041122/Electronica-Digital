@@ -558,7 +558,7 @@
         <div class="doc-hero-badges">
             <span class="doc-pill-tag"><i class="fa-solid fa-code-branch"></i> Versión 1.2</span>
             <span class="doc-pill-tag success"><i class="fa-solid fa-circle-check"></i> Producción</span>
-            <span class="doc-pill-tag dark"><i class="fa-solid fa-building-columns"></i> Residencia Profesional ITESFPM</span>
+            <span class="doc-pill-tag dark"><i class="fa-solid fa-building-columns"></i> Residencia Profesional TESSFP</span>
             <button type="button" class="btn btn-secondary btn-sm" onclick="window.print()" title="Imprimir o Exportar PDF">
                 <i class="fa-solid fa-print"></i> Imprimir
             </button>

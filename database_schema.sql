@@ -1,6 +1,6 @@
 -- =====================================================================
 -- Esquema de Base de Datos para Electrónica Digital MX
--- Residencia Profesional - ITESFPM
+-- Residencia Profesional - TESSFP
 -- Base de datos: electronica_digital_db
 -- =====================================================================
 

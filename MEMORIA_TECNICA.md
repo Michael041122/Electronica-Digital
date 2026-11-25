@@ -4,7 +4,7 @@
 **Estudiante Residente:** Michael Hernández de Jesús  
 **Carrera:** Ingeniería Informática - 9° Semestre  
 **No. de Control:** 2022330136  
-**Institución:** Tecnológico de Estudios Superiores de San Felipe del Progreso (ITESFPM)  
+**Institución:** Tecnológico de Estudios Superiores de San Felipe del Progreso (TESSFP)  
 **Asesor Interno:** Luis Ángel González Flores  
 **Asesor Externo:** Ing. Josué Verónica Pacheco (Gerente de Electrónica Digital MX)  
 

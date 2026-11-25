@@ -132,7 +132,7 @@
 
         <div class="footer-bottom text-center">
             <div class="container">
-                <p>&copy; 2026 Electrónica Digital MX. Todos los derechos reservados. Proyecto de Residencia Profesional - ITESFPM.</p>
+                <p>&copy; 2026 Electrónica Digital MX. Todos los derechos reservados. Proyecto de Residencia Profesional - TESSFP.</p>
             </div>
         </div>
     </footer>

@@ -1,7 +1,7 @@
 # =====================================================================
 # Guía de Despliegue Gratuito y Mantenimiento
 # Sistema Web de Gestión y Difusión para Electrónica Digital MX
-# Residencia Profesional - ITESFPM
+# Residencia Profesional - TESSFP
 # =====================================================================
 
 ## 1. Opciones Recomendadas de Hospedaje Gratuito (Render / Railway)
