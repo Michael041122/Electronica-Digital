@@ -112,9 +112,9 @@ Al terminar las labores administrativas:
 
 ### 7.6 Centro de Documentación Integrado (`/admin/documentacion`)
 - Apartado dedicado en el menú lateral izquierdo donde el administrador puede consultar de forma directa:
-  - 📘 **Manual de Usuario:** Guía visual de operación.
-  - ⚙️ **Memoria Técnica:** Especificaciones de arquitectura y base de datos.
-  - 🚀 **Guía de Despliegue:** Puesta en producción y configuración en Render.
+  - **Manual de Usuario:** Guía técnica y operativa de administración.
+  - **Memoria Técnica:** Especificaciones de arquitectura de software y base de datos.
+  - **Guía de Despliegue:** Procedimiento de puesta en producción y configuración en Render.
 
 ### 7.7 Protección Estricta contra Retorno en Navegador (Anti-Back Cache)
 - Al hacer clic en **"Cerrar Sesión"**, el sistema invalida completamente la sesión en el servidor y envía directivas estrictas HTTP (`no-cache, no-store, must-revalidate`).
